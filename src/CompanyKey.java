@@ -32,20 +32,20 @@ public class CompanyKey {
         return NumberHouse;
     }
 
+    public String PrintCompanyKey(){
+        return getCountry() + " " + getCity() + " " + getStreet() + " " + getNumberHouse();
+    }
+
     @Override
-    public boolean equals(Object o) {
-        if (o instanceof CompanyKey){
-            CompanyKey companyKey = (CompanyKey) o;
-            return companyKey.getCountry().equals(this.Country)&&
-                    companyKey.getCity().equals(this.City)&&
-                    companyKey.getStreet().equals(this.Street)&&
-                    companyKey.getNumberHouse().equals(this.NumberHouse);
-        }
-        else return false;
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        CompanyKey that = (CompanyKey) object;
+        return Objects.equals(Country, that.Country) && Objects.equals(City, that.City) && Objects.equals(Street, that.Street) && Objects.equals(NumberHouse, that.NumberHouse);
     }
 
     @Override
     public int hashCode() {
-        return City.hashCode() + NumberHouse.hashCode();
+        return Objects.hash(Country, City, Street, NumberHouse);
     }
 }

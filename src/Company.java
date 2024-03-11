@@ -8,4 +8,5 @@ public class Company {
     public String getNameOfCompany() {
         return NameOfCompany;
     }
+
 }
